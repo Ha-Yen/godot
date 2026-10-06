@@ -1,0 +1,9 @@
+--- a/editor/editor_node.h
++++ b/editor/editor_node.h
+@@ -130,6 +130,7 @@ private:
+ 		HELP_ABOUT,
+ 		HELP_SUPPORT_GODOT,
+ 		HELP_COMMUNITY,
++		HELP_DIFF_EDITOR_DEMO,
+ 		// ...other menu items
+ 	};

@@ -1,0 +1,19 @@
+--- a/editor/plugins/script_text_editor.h
++++ b/editor/plugins/script_text_editor.h
+@@ -34,6 +34,7 @@
+ #include "editor/code_editor.h"
+ #include "editor/editor_plugin.h"
+ #include "editor/script_create_dialog.h"
++#include "diff/diff_integration.h"
+ 
+ class ConnectionInfoDialog : public AcceptDialog {
+ 	GDCLASS(ConnectionInfoDialog, AcceptDialog);
+@@ -138,6 +139,8 @@ class ScriptTextEditor : public ScriptEditorBase {
+ 	Color current_color;
+ 	Vector<Vector2i> color_position_stack;
+ 
++	Ref<DiffIntegration> diff_integration;
++
+ public:
+ 	virtual void add_syntax_highlighter(Ref<SyntaxHighlighter> p_highlighter) override;
+ 	virtual void set_syntax_highlighter(Ref<SyntaxHighlighter> p_highlighter) override;

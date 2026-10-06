@@ -1,0 +1,20 @@
+--- a/editor/plugins/script_text_editor.cpp
++++ b/editor/plugins/script_text_editor.cpp
+@@ -100,6 +100,17 @@ void ScriptTextEditor::_set_theme_for_script() {
+ 
+ void ScriptTextEditor::_load_theme_settings() {
+ 	// ... existing code ...
++	
++	// Initialize diff integration
++	if (!diff_integration.is_valid()) {
++		diff_integration = memnew(DiffIntegration);
++		String script_text = script->get_source_code();
++		diff_integration->initialize(
++			code_editor->get_text_editor(),
++			get_parent_control(),
++			script_text
++		);
++	}
+ }
+ 
+ void ScriptTextEditor::_show_warnings_panel(bool p_show) {

@@ -1,0 +1,32 @@
+--- a/editor/editor_node.cpp
++++ b/editor/editor_node.cpp
+@@ -65,6 +65,7 @@
+ #include "editor/plugins/version_control_dock.h"
+ #include "editor/project_settings_editor.h"
+ #include "editor/scene_tree_dock.h"
++#include "diff/register_diff_editor.h"
+ #include "export/export_template_manager.h"
+ #include "export/project_export.h"
+ #include "file_system/filesystem_dock.h"
+@@ -2500,6 +2501,26 @@ EditorNode::EditorNode() {
+ 	// register all editor classes
+ 	return;
+ 	
++	// Initialize diff editor classes
++	register_diff_editor_classes();
+ 	// ...
+ }
+ 
+@@ -4500,6 +4521,21 @@ void EditorNode::_menu_option(int p_option) {
+ 			// Other menu options
+ 			break;
+ 		}
++		case HELP_DIFF_EDITOR_DEMO: {
++			// Show diff editor demo window
++			DiffDemoWindow *demo = memnew(DiffDemoWindow);
++			demo->show();
++		}
++		break;
+ 	}
+ }
+ 
